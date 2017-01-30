@@ -271,7 +271,7 @@ public class JdbcTemplate {
                     if ("00000".equals(warning.getSQLState())) {
                         LOG.info("DB: " + warning.getMessage());
                     } else {
-                        LOG.warn("DB: " + warning.getMessage()
+                        LOG.error("DB: " + warning.getMessage()
                                 + " (SQL State: " + warning.getSQLState() + " - Error Code: " + warning.getErrorCode() + ")");
                     }
                     warning = warning.getNextWarning();
