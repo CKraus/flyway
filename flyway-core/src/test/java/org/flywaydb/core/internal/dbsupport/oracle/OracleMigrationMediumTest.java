@@ -1,5 +1,5 @@
-/**
- * Copyright 2010-2016 Boxfuse GmbH
+/*
+ * Copyright 2010-2017 Boxfuse GmbH
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -108,6 +108,14 @@ public class OracleMigrationMediumTest extends MigrationTestCase {
     @Test
     public void createPackage() throws FlywayException {
         flyway.setLocations("migration/dbsupport/oracle/sql/package");
+        flyway.migrate();
+    }
+
+    @Test
+    public void schemaWithDash() throws FlywayException {
+        flyway.setSchemas("my-schema");
+        flyway.setLocations(getBasedir());
+        flyway.clean();
         flyway.migrate();
     }
 
